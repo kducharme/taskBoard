@@ -1,0 +1,83 @@
+.taskModal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.6);
+}
+
+.taskModal--content-close {
+    margin: -24px -20px 0 0;
+    color: var(--primaryColor);
+    float: right;
+    font-size: 28px;
+    font-weight: var(--mediumWeight);
+}
+
+.taskModal--content-close:hover {
+    opacity: .5;
+    cursor: pointer;
+}
+
+.taskModal--content > button {
+    float: right;
+    height: 40px;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 10px 18px 10px 18px;
+    border-radius: 3px;
+    margin-top: 20px;
+    border: none;
+    background-color: var(--accentColor);
+    color: white;
+}
+
+.taskModal--content > button:hover {
+    opacity: .7;
+}
+
+.taskModal--content {
+    background-color: white;
+    border-radius: 4px;
+    margin: auto;
+    width: 50%;
+    padding: 60px 40px 40px 40px;
+    max-width: 500px;
+    min-width: 400px;
+}
+
+.taskModal--title {
+    margin: 10px 0 20px 0;
+    width: 96%;
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 10px 15px 15px 15px;
+    border: 1px solid var(--accentGray);
+    border-radius: 2px;
+}
+
+.taskModal--description {
+    margin: 10px 0 20px 0;
+    width: 96%;
+    min-height: 120px;
+    font-weight: 400;
+    opacity: .8;
+    font-size: 1em;
+    padding: 10px 15px 15px 15px;
+    border: 1px solid var(--accentGray);
+    border-radius: 2px;
+}
+
+.taskModal--content > label {
+    font-family: 'lato';
+    font-size: 12px;
+    font-weight: 600;
+    padding-bottom: 18px;
+}

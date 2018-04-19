@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="styles.css">
+	<link rel="stylesheet" href="taskModal.css">
+	<link rel="stylesheet" href="dashboard.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Crimson+Text|Lato" rel="stylesheet">
+
+	<title>Task List</title>
+	<link rel="shortcut icon" type="image/png" href="img/nss.png" />
+
+</head>
+
+<body>
+
+	<nav>
+		<span class='nav--logo'>
+			<img src='img/nss.png'>
+		</span>
+		<a href='index.html' class='active'>
+			<i class="material-icons active" id='home'>home</i>
+		</a>
+		<a href='news.html'>
+			<i class="material-icons">person</i>
+		</a>
+		<i class="material-icons">settings</i>
+	</nav>
+
+	<div class='content'>
+		<div class='dashboard--header'>
+			<h2>Task List</h2>
+			<button id='addTask'>Add new task</button>
+		</div>
+
+		<div class='content--dash'></div>
+
+		<span class='col'>
+
+			<!-- Backlog -->
+
+			<div class='col--lane'>
+				<span class='col--header'>
+					<span class='col--header-text'>
+						<h5>Backlog
+							<span id='totalBacklogTasks'></span>
+						</h5>
+					</span>
+					<hr>
+				</span>
+				<span class='tasks'>
+					<span class='tasks--lane' id='tasks-backlog' ondragover="allowDrop(event)" ondrop='drop(event)'>
+					</span>
+				</span>
+		</span>
+		</div>
+
+		<!-- In progress -->
+
+		<div class='col--lane'>
+			<span class='col--header'>
+				<span class='col--header-text'>
+					<h5>In progress
+						<span id='totalProgressTasks'></span>
+					</h5>
+				</span>
+				<hr>
+			</span>
+
+			<span class='tasks'>
+				<span class='tasks--lane' id='tasks-progress' ondragover="allowDrop(event)" ondrop='drop(event)'>
+				</span>
+			</span>
+		</div>
+
+		<!-- Needs review -->
+		<div class='col--lane'>
+			<span class='col--header'>
+				<span class='col--header-text'>
+					<h5>Needs review
+						<span id='totalReviewTasks'></span>
+					</h5>
+				</span>
+				<hr>
+			</span>
+
+			<span class='tasks'>
+				<span class='tasks--lane' id='tasks-review' ondragover="allowDrop(event)" ondrop='drop(event)'>
+				</span>
+			</span>
+		</div>
+
+		<!-- Completed -->
+		<div class='col--lane'>
+			<span class='col--header'>
+				<span class='col--header-text'>
+					<h5>Completed
+						<span id='totalCompletedTasks'></span>
+					</h5>
+				</span>
+				<hr>
+			</span>
+
+			<span class='tasks'>
+				<span class='tasks--lane' id='tasks-complete' ondragover="allowDrop(event)" ondrop='drop(event)'>
+				</span>
+			</span>
+		</div>
+	</div>
+
+	<div class='modal hide' id='modal'>
+		<span class='modal--content'>
+			<span class='modal--content-close' id='closeModal'>&times;</span>
+			<h3 class='modal--content-title'>Create new task.</h3>
+			<p class='modal--content-body'>Enter the task's information below to add it to the board.</p>
+			<span class='inputs'>
+				<label for='taskName'>Task name</label>
+				<input type='text' id='taskName' placeholder="Enter task name">
+
+				<label for='taskPriority'>Label</label>
+				<span class='priorities'>
+					<span id='green' class='priority green'></span>
+					<span id='blue' class='priority blue'></span>
+					<span id='red' class='priority red'></span>
+					<span id='orange' class='priority orange'></span>
+					<span id='yellow' class='priority yellow'></span>
+				</span>
+
+				<label for='taskDetails'>Description</label>
+				<textarea id='taskDetails' placeholder="Enter description"></textarea>
+
+			</span>
+			<button id='createTask'>Create task</button>
+		</span>
+	</div>
+
+	<div class='taskModal hide' id='taskModal'>
+			<span class='taskModal--content'>
+				<span class='taskModal--content-close' id='closeTaskModal'>&times;</span>
+
+				<label>Task name</label>
+				<h3 class='taskModal--title' id='modalTaskTitle'></h3>
+
+				<label>Description</label>
+				<p class='taskModal--description' id='modalTaskDescription'>.</p>
+			
+				<button id='saveChanges'>Save changes</button>
+			</span>
+		</div>
+
+	<script src='scripts/drag.js'></script>
+	<script src='scripts/taskcount.js'></script>
+	<script src='scripts/data.js'></script>
+	<script src='scripts/createTasks.js'></script>
+	<script src='scripts/editTasks.js'></script>
+	<script src='scripts/generator.js'></script>
+	<script src='scripts/lanes.js'></script>
+</body>
+
+</html>
+
+
+<!-- <span class='tasks--complete' id='tasks-complete' ondragover="allowDrop(event)" ondrop='drop(event)'>
+</span> -->
