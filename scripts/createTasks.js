@@ -55,7 +55,7 @@ const createTask = () => {
     const task = Object.create(null, {
         title: { writable: true, value: name },
         details: { writable: true, value: details },
-        priority: { writable: true, value: priority },
+        priority: { writable: true, value: setPriority() },
         progress: { writable: true, value: progress }
     })
 
@@ -67,6 +67,10 @@ const createTask = () => {
 }
 
 const createNewTask = document.querySelector('#createTask').addEventListener('click', createTask)
+
+const setPriority = () => {
+    
+}
 
 // Posts tasks to the DOM
 const postTask = (task) => {

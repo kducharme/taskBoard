@@ -14,7 +14,7 @@
 }
 
 .taskModal--content-close {
-    margin: -24px -20px 0 0;
+    margin: -40px -20px 0 0;
     color: var(--primaryColor);
     float: right;
     font-size: 28px;
@@ -55,7 +55,7 @@
 
 .taskModal--title {
     margin: 10px 0 20px 0;
-    width: 96%;
+    width: 93%;
     font-weight: 600;
     font-size: 1.2em;
     padding: 10px 15px 15px 15px;
@@ -65,7 +65,7 @@
 
 .taskModal--description {
     margin: 10px 0 20px 0;
-    width: 96%;
+    width: 93%;
     min-height: 120px;
     font-weight: 400;
     opacity: .8;
