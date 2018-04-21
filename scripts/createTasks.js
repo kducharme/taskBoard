@@ -73,19 +73,7 @@ const createTask = (e) => {
     const stringed = JSON.stringify(task)
     console.log(stringed)
 
-    $.ajax({
-        url:'https://task-list-cf398.firebaseio.com/tasks.json',
-        type: "POST",
-        data: JSON.stringify(task),
-        success: function () {
-            console.log("success");
-        },
-        error: function (error) {
-            console.log("error: " + error)
-        }
-    });
-
-    // tasksDB(task)
+    saveToDB(task)
     clearFields();
     allTasks.push(task);
     postTask(task)
