@@ -71,7 +71,6 @@ const createTask = (e) => {
     })
 
     const stringed = JSON.stringify(task)
-    console.log(stringed)
 
     saveToDB(task)
     clearFields();
