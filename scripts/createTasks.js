@@ -17,7 +17,7 @@ const closeModal = () => {
     let modal = document.querySelector('#modal');
     const priorities = document.querySelectorAll('.priority');
     modal.classList.toggle('hide');
-    
+
     priorities.forEach(priority => {
         priority.classList.remove('selected')
         priority.classList.remove('not-selected')
@@ -50,21 +50,25 @@ const stylePriority = (e) => {
     })
 }
 
-
-const getPriority = (e) => {
-    console.log(e)
-}
-
 // Creates an object for the task and triggers posting to DOM
 const createTask = (e) => {
     const name = document.querySelector('#taskName').value;
     const details = document.querySelector('#taskDetails').value;
-    const progress = '';
+    const priorities = e.path[1].children[3].children[3].children; // Need to refactor this
+    const priorityList = Array.prototype.slice.call(priorities, 0);
+    let selected = '';
+    let progress = '';
 
-    const task = Object.create(null, {
+    priorityList.forEach(i => {
+        if (i.classList[2] === 'selected') {
+            selected = i.id;
+        }
+    })
+
+    const task = Object.create({}, {
         title: { writable: true, value: name },
         details: { writable: true, value: details },
-        priority: { writable: true, value: getPriority(e) },
+        priority: { writable: true, value: selected },
         progress: { writable: true, value: progress }
     })
 
@@ -85,6 +89,7 @@ const setPriority = (priority) => {
 const postTask = (task) => {
     let name = task.title,
         details = task.details,
+        priority = task.priority,
         structure = createTaskStructure(),
         headStructure = createHeadStructure(),
         taskName = document.createElement('h2'),
