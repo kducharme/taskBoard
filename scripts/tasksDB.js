@@ -1,6 +1,6 @@
 const saveToDB = (task) => {
     $.ajax({
-        url:'https://task-list-cf398.firebaseio.com/tasks.json',
+        url: 'https://task-list-cf398.firebaseio.com/tasks.json',
         type: "POST",
         data: JSON.stringify(task),
         success: function () {
@@ -27,22 +27,19 @@ const getFromDB = () => {
 }
 
 const parseData = (data) => {
-    console.log(data)
-    let post = data;
-    let keys = Object.keys(post);
+    const keys = Object.keys(data);
+    console.log(keys)
 
-    for (var i = 0; i < keys.length; i++) {
-        let k = keys[i]
+    keys.forEach(task => {
+        let k = keys[task]
         let dataObj = {
             k: k,
-            title: post[k].title,
-            content: post[k].body,
-            author: post[k].author,
-            date: post[k].date
+            title: task[k].title,
+            content: task[k].details,
+            author: task[k].priority
         }
-        allPosts.push(dataObj)
-    }
-    sortPost(allPosts)
+        allTasks.push(dataObj)
+    })
 }
 
 getFromDB()

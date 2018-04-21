@@ -75,7 +75,6 @@ const createTask = (e) => {
 
     saveToDB(task)
     clearFields();
-    allTasks.push(task);
     postTask(task)
     closeModal();
     taskCount();
