@@ -68,7 +68,7 @@ const postSavedTasks = () => {
         fragment.appendChild(structure)
     })
     backlog.appendChild(fragment)
-
+    taskCount();
 }
 
 getFromDB()
