@@ -5,7 +5,7 @@ const taskModal = () => {
     const priorities = document.querySelectorAll('.priority');
 
     priorities.forEach(priority => {
-        priority.addEventListener('click', getPriority);
+        priority.addEventListener('click', stylePriority);
     })
     modal.classList.toggle('hide')
 }
@@ -15,7 +15,13 @@ const addTask = document.querySelector('#addTask').addEventListener('click', tas
 // Closes modal after user clicks 'x' button
 const closeModal = () => {
     let modal = document.querySelector('#modal');
+    const priorities = document.querySelectorAll('.priority');
     modal.classList.toggle('hide');
+    
+    priorities.forEach(priority => {
+        priority.classList.remove('selected')
+        priority.classList.remove('not-selected')
+    })
 }
 
 // Clears fields after the create task button is clicked
@@ -28,7 +34,7 @@ const clearFields = () => {
 }
 
 // Allows user to select priority of the task
-const getPriority = (e) => {
+const stylePriority = (e) => {
     const priorities = document.querySelectorAll('.priority');
     const selected = e.target;
 
@@ -42,20 +48,23 @@ const getPriority = (e) => {
             priority.classList.add('not-selected')
         }
     })
-    return selected.id;
+}
+
+
+const getPriority = (e) => {
+    console.log(e)
 }
 
 // Creates an object for the task and triggers posting to DOM
-const createTask = () => {
+const createTask = (e) => {
     const name = document.querySelector('#taskName').value;
     const details = document.querySelector('#taskDetails').value;
-    const priority = '';
     const progress = '';
 
     const task = Object.create(null, {
         title: { writable: true, value: name },
         details: { writable: true, value: details },
-        priority: { writable: true, value: setPriority() },
+        priority: { writable: true, value: getPriority(e) },
         progress: { writable: true, value: progress }
     })
 
@@ -68,8 +77,8 @@ const createTask = () => {
 
 const createNewTask = document.querySelector('#createTask').addEventListener('click', createTask)
 
-const setPriority = () => {
-    
+const setPriority = (priority) => {
+    return priority
 }
 
 // Posts tasks to the DOM
@@ -116,3 +125,4 @@ const createExpandButton = () => {
     button.classList.add('button--expand');
     return button;
 }
+
