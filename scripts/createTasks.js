@@ -90,6 +90,7 @@ const postTask = (task) => {
     let name = task.title,
         details = task.details,
         priority = task.priority,
+        priorityStyle = priorityStyling(priority),
         structure = createTaskStructure(),
         headStructure = createHeadStructure(),
         taskName = document.createElement('h2'),
@@ -104,7 +105,36 @@ const postTask = (task) => {
     headStructure.appendChild(button);
     structure.appendChild(headStructure);
     structure.appendChild(taskBody);
+    structure.appendChild(priorityStyle);
     backlog.appendChild(structure)
+}
+
+const priorityStyling = (priority) => {
+    const priorityStyle = document.createElement('span');
+    priorityStyle.classList.add('card-priority')
+
+    switch (priority) {
+        case 'red':
+            priorityStyle.classList.add('red')
+            return priorityStyle;
+            break;
+        case 'orange':
+            priorityStyle.classList.add('orange')
+            return priorityStyle;
+            break;
+        case 'green':
+            priorityStyle.classList.add('green')
+            return priorityStyle;
+            break;
+        case 'blue':
+            priorityStyle.classList.add('blue')
+            return priorityStyle;
+            break;
+        case 'yellow':
+            priorityStyle.classList.add('yellow')
+            return priorityStyle;
+            break;
+    }
 }
 
 const createTaskStructure = () => {

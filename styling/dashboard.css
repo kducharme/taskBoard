@@ -311,3 +311,10 @@ hr {
 .not-selected { opacity: .3; }
 
 .hide { display: none; }
+
+.card-priority {
+    height: 10px;
+    width: 40px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
