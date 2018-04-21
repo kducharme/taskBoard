@@ -28,18 +28,47 @@ const getFromDB = () => {
 
 const parseData = (data) => {
     const keys = Object.keys(data);
-    console.log(keys)
 
     keys.forEach(task => {
-        let k = keys[task]
         let dataObj = {
-            k: k,
-            title: task[k].title,
-            content: task[k].details,
-            author: task[k].priority
+            task: task,
+            title: data[task].title,
+            details: data[task].details,
+            priority: data[task].priority
         }
         allTasks.push(dataObj)
     })
+    postSavedTasks()
+}
+
+const postSavedTasks = () => {
+    const backlog = document.querySelector('#tasks-backlog');
+    
+    const fragment = document.createDocumentFragment();
+    allTasks.forEach(task => {
+
+        let name = task.title,
+            details = task.details,
+            priority = task.priority,
+            priorityStyle = priorityStyling(priority),
+            structure = createTaskStructure(),
+            headStructure = createHeadStructure(),
+            taskName = document.createElement('h2'),
+            taskBody = document.createElement('p'),
+            button = createExpandButton();
+
+        taskName.textContent = name;
+        taskBody.textContent = details;
+
+        headStructure.appendChild(taskName);
+        headStructure.appendChild(button);
+        structure.appendChild(headStructure);
+        structure.appendChild(taskBody);
+        structure.appendChild(priorityStyle);
+        fragment.appendChild(structure)
+    })
+    backlog.appendChild(fragment)
+
 }
 
 getFromDB()

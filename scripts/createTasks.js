@@ -75,19 +75,15 @@ const createTask = (e) => {
 
     saveToDB(task)
     clearFields();
-    postTask(task)
+    postNewTask(task)
     closeModal();
     taskCount();
 }
 
 const createNewTask = document.querySelector('#createTask').addEventListener('click', createTask)
 
-const setPriority = (priority) => {
-    return priority
-}
-
 // Posts tasks to the DOM
-const postTask = (task) => {
+const postNewTask = (task) => {
     let name = task.title,
         details = task.details,
         priority = task.priority,
