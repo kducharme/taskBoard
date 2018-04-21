@@ -57,7 +57,6 @@ const createTask = (e) => {
     const priorities = e.path[1].children[3].children[3].children; // Need to refactor this
     const priorityList = Array.prototype.slice.call(priorities, 0);
     let selected = '';
-    let progress = '';
 
     priorityList.forEach(i => {
         if (i.classList[2] === 'selected') {
@@ -66,12 +65,27 @@ const createTask = (e) => {
     })
 
     const task = Object.create({}, {
-        title: { writable: true, value: name },
-        details: { writable: true, value: details },
-        priority: { writable: true, value: selected },
-        progress: { writable: true, value: progress }
+        title: { enumerable: true, writable: true, value: name },
+        details: { enumerable: true, writable: true, value: details },
+        priority: { enumerable: true, writable: true, value: selected }
     })
 
+    const stringed = JSON.stringify(task)
+    console.log(stringed)
+
+    $.ajax({
+        url:'https://task-list-cf398.firebaseio.com/tasks.json',
+        type: "POST",
+        data: JSON.stringify(task),
+        success: function () {
+            console.log("success");
+        },
+        error: function (error) {
+            console.log("error: " + error)
+        }
+    });
+
+    // tasksDB(task)
     clearFields();
     allTasks.push(task);
     postTask(task)
