@@ -4,14 +4,14 @@ const moveTask = (lane, task) => {
     const taskPriority = task.childNodes[2].classList[1]
     let newLane = lane;
     let taskKey;
-    
+
     allTasks.forEach(task => {
         if (taskTitle.textContent === task.title && task.priority === taskPriority) {
             const taskUpdate = {
                 lane: newLane,
-                task: task.task
+                key: task.task
             }
-            // updateDB(taskUpdate);
+            updateDB(taskUpdate);
         }
     })
 }

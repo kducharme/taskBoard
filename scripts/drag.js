@@ -12,18 +12,12 @@ const drop = (e, el) => {
     e.preventDefault();
     const data = e.dataTransfer.getData("text");
     const newLane = e.path[2].id;
+    const laneDrop = e.path[0].id
     const selectedTask = document.querySelector(`#${data}`)
 ;   
-    moveTask(newLane, selectedTask)
-    console.log(e.target.id)
-    
-    if (newLane === 'tasks-complete' || e.target.id === 'tasks-complete') {
-        completedTask(selectedTask);
-    }
-    else {
-        selectedTask.childNodes[1].classList.remove('hide')
-    }
+    moveTask(laneDrop, selectedTask)
     
     el.appendChild(document.getElementById(data));
     taskCount();
+    
 }

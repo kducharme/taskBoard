@@ -25,19 +25,19 @@ const getFromDB = () => {
     });
 }
 
-// const updateDB = (taskUpdate) => {
-//     $.ajax({
-//         url: 'https://task-list-cf398.firebaseio.com/tasks.json',
-//         type: "UPDATE",
-//         data: JSON.stringify(taskUpdate),
-//         success: function () {
-//             console.log('success - data received');
-//         },
-//         error: function (error) {
-//             console.table('error: ' + error)
-//         }
-//     });
-// }
+const updateDB = (taskUpdate) => {
+    $.ajax({
+        url: `https://task-list-cf398.firebaseio.com/tasks/${taskUpdate.key}.json`,
+        type: "PATCH",
+        data: JSON.stringify(taskUpdate),
+        success: function () {
+            console.log('success - data received');
+        },
+        error: function (error) {
+            console.table('error: ' + error)
+        }
+    });
+}
 
 const parseData = (data) => {
     const keys = Object.keys(data);
