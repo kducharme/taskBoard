@@ -139,6 +139,8 @@ const createTaskStructure = () => {
     const structure = document.createElement('span');
     structure.setAttribute('draggable', 'true');
     structure.setAttribute('ondragstart', 'drag(event)');
+    structure.setAttribute('ondrop', 'return false')
+    structure.setAttribute('ondragover', 'return false')
     structure.setAttribute('id', `task__${taskID.next().value}`);
     structure.classList.add('indiv-task', 'drag');
     return structure;

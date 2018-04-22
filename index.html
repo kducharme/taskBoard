@@ -50,7 +50,7 @@
 					<hr>
 				</span>
 				<span class='tasks'>
-					<span class='tasks--lane' id='tasks-backlog' ondragover="allowDrop(event)" ondrop='drop(event)'>
+					<span class='tasks--lane' id='tasks-backlog' ondragover="allowDrop(event)" ondrop="drop(event, this)">
 					</span>
 				</span>
 		</span>
@@ -69,7 +69,7 @@
 			</span>
 
 			<span class='tasks'>
-				<span class='tasks--lane' id='tasks-progress' ondragover="allowDrop(event)" ondrop='drop(event)'>
+				<span class='tasks--lane' id='tasks-progress' ondragover="allowDrop(event)" ondrop="drop(event, this)">
 				</span>
 			</span>
 		</div>
@@ -86,7 +86,7 @@
 			</span>
 
 			<span class='tasks'>
-				<span class='tasks--lane' id='tasks-review' ondragover="allowDrop(event)" ondrop='drop(event)'>
+				<span class='tasks--lane' id='tasks-review' ondragover="allowDrop(event)" ondrop="drop(event, this)">
 				</span>
 			</span>
 		</div>
@@ -103,7 +103,7 @@
 			</span>
 
 			<span class='tasks'>
-				<span class='tasks--lane' id='tasks-complete' ondragover="allowDrop(event)" ondrop='drop(event)'>
+				<span class='tasks--lane' id='tasks-complete' ondragover="allowDrop(event)" ondrop="drop(event, this)">
 				</span>
 			</span>
 		</div>

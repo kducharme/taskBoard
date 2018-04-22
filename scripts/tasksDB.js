@@ -17,8 +17,21 @@ const getFromDB = () => {
         url: 'https://task-list-cf398.firebaseio.com/tasks.json?print=pretty',
         type: "GET",
         success: function (data) {
-            console.log('success - data received');
             parseData(data);
+        },
+        error: function (error) {
+            console.table(error)
+        }
+    });
+}
+
+const updateDB = (taskUpdate) => {
+    $.ajax({
+        url: `https://task-list-cf398.firebaseio.com/tasks/${taskUpdate.key}.json`,
+        type: "PATCH",
+        data: JSON.stringify(taskUpdate),
+        success: function () {
+            console.log('success - data received');
         },
         error: function (error) {
             console.table('error: ' + error)
@@ -47,14 +60,14 @@ const postSavedTasks = () => {
     const progress = document.querySelector('#tasks-progress');
     const review = document.querySelector('#tasks-review');
     const complete = document.querySelector('#tasks-complete');
-    
-    const fragment = document.createDocumentFragment();
+
     allTasks.forEach(task => {
 
         let name = task.title,
             details = task.details,
             priority = task.priority,
             priorityStyle = priorityStyling(priority),
+            currentLane = task.lane,
             structure = createTaskStructure(),
             headStructure = createHeadStructure(),
             taskName = document.createElement('h2'),
@@ -69,9 +82,24 @@ const postSavedTasks = () => {
         structure.appendChild(headStructure);
         structure.appendChild(taskBody);
         structure.appendChild(priorityStyle);
-        fragment.appendChild(structure)
+
+        if (currentLane === 'tasks-backlog') {
+            backlog.appendChild(structure)
+        }
+        if (currentLane === 'tasks-progress') {
+            progress.appendChild(structure)
+        }
+        if (currentLane === 'tasks-review') {
+            review.appendChild(structure)
+        }
+        if (currentLane === 'tasks-complete') {
+            complete.appendChild(structure)
+            completedTask(structure)
+        }
+        
+
     })
-    backlog.appendChild(fragment)
+
     taskCount();
 }
 
