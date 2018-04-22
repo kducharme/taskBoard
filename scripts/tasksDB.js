@@ -34,7 +34,8 @@ const parseData = (data) => {
             task: task,
             title: data[task].title,
             details: data[task].details,
-            priority: data[task].priority
+            priority: data[task].priority,
+            lane: data[task].lane,
         }
         allTasks.push(dataObj)
     })
@@ -43,6 +44,9 @@ const parseData = (data) => {
 
 const postSavedTasks = () => {
     const backlog = document.querySelector('#tasks-backlog');
+    const progress = document.querySelector('#tasks-progress');
+    const review = document.querySelector('#tasks-review');
+    const complete = document.querySelector('#tasks-complete');
     
     const fragment = document.createDocumentFragment();
     allTasks.forEach(task => {

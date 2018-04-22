@@ -10,16 +10,18 @@ const drag = (dragevent) => {
 
 const drop = (dropevent) => {
     dropevent.preventDefault();
-    let data = dropevent.dataTransfer.getData("text");
-    let selectedCard = document.querySelector(`#${data}`)
+    const newLane = dropevent.path[0].id;
+    const data = dropevent.dataTransfer.getData("text");
+    const selectedTask = document.querySelector(`#${data}`)
+
+    moveTask(newLane, selectedTask)
 
     if (dropevent.target.id === 'tasks-complete') {
-        completedTask(selectedCard);
+        completedTask(selectedTask);
     }
     else {
-        selectedCard.childNodes[1].classList.remove('hide')
+        selectedTask.childNodes[1].classList.remove('hide')
     }
-
     dropevent.target.appendChild(document.getElementById(data));
     taskCount();
 }

@@ -56,6 +56,7 @@ const createTask = (e) => {
     const details = document.querySelector('#taskDetails').value;
     const priorities = e.path[1].children[3].children[3].children; // Need to refactor this
     const priorityList = Array.prototype.slice.call(priorities, 0);
+    const lane = '';
     let selected = '';
 
     priorityList.forEach(i => {
@@ -67,7 +68,8 @@ const createTask = (e) => {
     const task = Object.create({}, {
         title: { enumerable: true, writable: true, value: name },
         details: { enumerable: true, writable: true, value: details },
-        priority: { enumerable: true, writable: true, value: selected }
+        priority: { enumerable: true, writable: true, value: selected },
+        lane: { enumerable: true, writable: true, value: 'tasks-backlog' }
     })
 
     const stringed = JSON.stringify(task)
@@ -150,7 +152,7 @@ const createHeadStructure = () => {
 
 const createExpandButton = () => {
     const button = document.createElement('button');
-    button.textContent = 'Edit';
+    button.textContent = 'View';
     button.setAttribute('id', `button__${buttonID.next().value}`);
     button.addEventListener('click', taskModalData);
     button.classList.add('button--expand');
