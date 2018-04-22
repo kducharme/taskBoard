@@ -13,7 +13,7 @@ const moveTask = (lane, task) => {
             }
             updateDB(taskUpdate);
         }
-    })
+})
 }
 
 
