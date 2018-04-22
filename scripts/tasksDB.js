@@ -31,7 +31,19 @@ const updateDB = (taskUpdate) => {
         type: "PATCH",
         data: JSON.stringify(taskUpdate),
         success: function () {
-            console.log('success - data received');
+        },
+        error: function (error) {
+            console.table('error: ' + error)
+        }
+    });
+}
+
+const deleteTaskInDB = (key) => {
+    $.ajax({
+        url: `https://task-list-cf398.firebaseio.com/tasks/${key}.json`,
+        type: "DELETE",
+        data: JSON.stringify(key),
+        success: function () {
         },
         error: function (error) {
             console.table('error: ' + error)
@@ -72,13 +84,15 @@ const postSavedTasks = () => {
             headStructure = createHeadStructure(),
             taskName = document.createElement('h2'),
             taskBody = document.createElement('p'),
-            button = createExpandButton();
+            viewButton = createViewButton();
+            deleteButton = createDeleteButton();
 
         taskName.textContent = name;
         taskBody.textContent = details;
 
         headStructure.appendChild(taskName);
-        headStructure.appendChild(button);
+        headStructure.appendChild(deleteButton);
+        headStructure.appendChild(viewButton);
         structure.appendChild(headStructure);
         structure.appendChild(taskBody);
         structure.appendChild(priorityStyle);
@@ -97,7 +111,6 @@ const postSavedTasks = () => {
             completedTask(structure)
         }
         
-
     })
 
     taskCount();

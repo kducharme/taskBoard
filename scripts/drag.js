@@ -1,22 +1,28 @@
 //Drag and drop functionality
-const allowDrop = (e) => {
-    const hoverLane = e.target.id;
-    e.preventDefault();
+const allowDrop = (event) => {
+    const hoverLane = event.target.id;
+    event.preventDefault();
 }
 
-const drag = (dragevent) => {
-    dragevent.dataTransfer.setData("text", dragevent.target.id);
+const drag = (event) => {
+    event.dataTransfer.setData("text", event.target.id);
 }
 
-const drop = (e, el) => {
-    e.preventDefault();
-    const data = e.dataTransfer.getData("text");
-    const newLane = e.path[2].id;
-    const laneDrop = e.path[0].id
+const drop = (event, el) => {
+    event.preventDefault();
+    const data = event.dataTransfer.getData("text");
+    const laneDrop = el.parentNode.childNodes[1].id
     const selectedTask = document.querySelector(`#${data}`)
 ;   
     moveTask(laneDrop, selectedTask)
-    
+
+    if (laneDrop === 'tasks-complete') {
+        completedTask(selectedTask)
+    }
+    else {
+        selectedTask.childNodes[1].classList.remove('hide');
+    }
+
     el.appendChild(document.getElementById(data));
     taskCount();
     

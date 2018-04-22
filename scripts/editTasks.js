@@ -6,8 +6,6 @@ const taskModalData = (e) => {
     const taskDetails = task[1].textContent;
     showTaskModal(taskID, taskName, taskDetails);
     makeTaskChange(taskID, taskName, taskDetails);
-
-    console.log(allTasks)
 }
 
 const showTaskModal = (id, name, details) => {
