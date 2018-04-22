@@ -94,7 +94,7 @@ const postNewTask = (task) => {
         taskName = document.createElement('h2'),
         taskBody = document.createElement('p'),
         backlog = document.querySelector('#tasks-backlog'),
-        button = createExpandButton();
+        button = createViewButton();
 
     taskName.textContent = name;
     taskBody.textContent = details;
@@ -142,6 +142,8 @@ const createTaskStructure = () => {
     structure.setAttribute('ondrop', 'return false')
     structure.setAttribute('ondragover', 'return false')
     structure.setAttribute('id', `task__${taskID.next().value}`);
+    structure.addEventListener('mouseenter', showEdit)
+    structure.addEventListener('mouseleave', hideEdit)
     structure.classList.add('indiv-task', 'drag');
     return structure;
 }
@@ -152,12 +154,25 @@ const createHeadStructure = () => {
     return structure;
 }
 
-const createExpandButton = () => {
+const showEdit = (e) => {
+    const button = e.path[0].childNodes[0].childNodes[1]
+    button.classList.toggle('hide')
+    
+}
+
+const hideEdit = (e) => {
+    const button = e.path[0].childNodes[0].childNodes[1]
+    button.classList.toggle('hide')
+    
+}
+
+const createViewButton = () => {
     const button = document.createElement('button');
     button.textContent = 'View';
     button.setAttribute('id', `button__${buttonID.next().value}`);
     button.addEventListener('click', taskModalData);
     button.classList.add('button--expand');
+    button.classList.add('hide');
     return button;
 }
 

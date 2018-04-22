@@ -72,7 +72,7 @@ const postSavedTasks = () => {
             headStructure = createHeadStructure(),
             taskName = document.createElement('h2'),
             taskBody = document.createElement('p'),
-            button = createExpandButton();
+            button = createViewButton();
 
         taskName.textContent = name;
         taskBody.textContent = details;
