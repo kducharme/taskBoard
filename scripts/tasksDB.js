@@ -34,7 +34,8 @@ const parseData = (data) => {
             task: task,
             title: data[task].title,
             details: data[task].details,
-            priority: data[task].priority
+            priority: data[task].priority,
+            lane: data[task].lane,
         }
         allTasks.push(dataObj)
     })
