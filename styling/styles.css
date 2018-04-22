@@ -15,6 +15,15 @@ h1, h2, h3, h4, h5, a {
     font-family: var(--primaryFont);
 }
 
+button:hover, button:active, button:focus {
+    cursor: pointer;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+    outline: none;
+  }
+
 a, button {
     text-decoration: none;
     cursor: pointer;

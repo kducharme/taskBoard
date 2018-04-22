@@ -94,13 +94,15 @@ const postNewTask = (task) => {
         taskName = document.createElement('h2'),
         taskBody = document.createElement('p'),
         backlog = document.querySelector('#tasks-backlog'),
-        button = createViewButton();
+        viewButton = createViewButton();
+        deleteButton = createDeleteButton();
 
     taskName.textContent = name;
     taskBody.textContent = details;
 
     headStructure.appendChild(taskName);
-    headStructure.appendChild(button);
+    headStructure.appendChild(deleteButton);
+    headStructure.appendChild(viewButton);
     structure.appendChild(headStructure);
     structure.appendChild(taskBody);
     structure.appendChild(priorityStyle);
@@ -155,14 +157,18 @@ const createHeadStructure = () => {
 }
 
 const showEdit = (e) => {
-    const button = e.path[0].childNodes[0].childNodes[1]
-    button.classList.toggle('hide')
+    const viewButton = e.path[0].childNodes[0].childNodes[2]
+    const deleteButton = e.path[0].childNodes[0].childNodes[1]
+    viewButton.classList.toggle('hide')
+    deleteButton.classList.toggle('hide')
     
 }
 
 const hideEdit = (e) => {
-    const button = e.path[0].childNodes[0].childNodes[1]
-    button.classList.toggle('hide')
+    const viewButton = e.path[0].childNodes[0].childNodes[2]
+    const deleteButton = e.path[0].childNodes[0].childNodes[1]
+    viewButton.classList.toggle('hide')
+    deleteButton.classList.toggle('hide')
     
 }
 
@@ -172,6 +178,16 @@ const createViewButton = () => {
     button.setAttribute('id', `button__${buttonID.next().value}`);
     button.addEventListener('click', taskModalData);
     button.classList.add('button--expand');
+    button.classList.add('hide');
+    return button;
+}
+
+const createDeleteButton = () => {
+    const button = document.createElement('button');
+    button.innerHTML = '<i class="material-icons delete">delete</i>';
+    button.setAttribute('id', `delete`);
+    button.addEventListener('click', deleteTask);
+    button.classList.add('button--delete');
     button.classList.add('hide');
     return button;
 }

@@ -157,14 +157,14 @@ hr {
     font-size: 15px;
     font-weight: 600;
     line-height: 1.5;
-    width: 74%;
+    width: 60%;
     margin: 0 5px 0 0;
 }
 
 .button--expand {
     width: auto;
     height: 25px;
-    padding: 4px 10px 4px 10px;
+    padding: 4px 6px 4px 6px;
     color: rgb(141, 141, 141);
     background-color: rgb(240, 240, 240);
     border: 1px solid rgb(211, 211, 211);
@@ -173,6 +173,32 @@ hr {
 
 .button--expand:hover {
     background-color:  rgb(211, 211, 211);
+}
+
+.button--delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 25px;
+    color: rgb(141, 141, 141);
+    background-color: rgb(240, 240, 240);
+    border: 1px solid rgb(211, 211, 211);
+    border-radius: 2px;
+    margin-right: 4px;
+}
+
+.button--delete:hover {
+    background-color:  rgb(211, 211, 211);
+}
+
+.delete {
+    font-size: 18px!important;
+    line-height: 0!important;
+    width: 11px;
+    height: 25px;
+    margin: 2px 4px 0 -2px;
+    padding: 8px 0 0 0;
+    color: rgb(141, 141, 141);
 }
 
 
