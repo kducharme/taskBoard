@@ -12,8 +12,8 @@ const drop = (event, el) => {
     event.preventDefault();
     const data = event.dataTransfer.getData("text");
     const laneDrop = el.parentNode.childNodes[1].id
-    const selectedTask = document.querySelector(`#${data}`)
-;   
+    const selectedTask = document.querySelector(`#${data}`);
+    
     moveTask(laneDrop, selectedTask)
 
     if (laneDrop === 'tasks-complete') {

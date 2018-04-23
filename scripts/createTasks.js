@@ -78,6 +78,7 @@ const createTask = (e) => {
     clearFields();
     postNewTask(task)
     closeModal();
+    // getFromDB()
     taskCount();
 }
 
@@ -101,8 +102,8 @@ const postNewTask = (task) => {
     taskBody.textContent = details;
 
     headStructure.appendChild(taskName);
-    headStructure.appendChild(deleteButton);
     headStructure.appendChild(viewButton);
+    headStructure.appendChild(deleteButton);
     structure.appendChild(headStructure);
     structure.appendChild(taskBody);
     structure.appendChild(priorityStyle);

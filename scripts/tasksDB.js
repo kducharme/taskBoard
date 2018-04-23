@@ -91,8 +91,8 @@ const postSavedTasks = () => {
         taskBody.textContent = details;
 
         headStructure.appendChild(taskName);
-        headStructure.appendChild(deleteButton);
         headStructure.appendChild(viewButton);
+        headStructure.appendChild(deleteButton);
         structure.appendChild(headStructure);
         structure.appendChild(taskBody);
         structure.appendChild(priorityStyle);

@@ -1,10 +1,10 @@
 :root {
-    --primaryColor: #11151C;
+    --primaryColor: #11151c;
     --accentColor: #FF570A;
     --backgroundColor: rgb(241, 242, 243);
     --accentGray:  rgb(224, 227, 230);
 
-    --chartColor: #039BE5;
+    --chartColor: #29339B;
     --successColor: #6cc551;
 
     --primaryFont: 'lato';
