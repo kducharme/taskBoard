@@ -112,4 +112,4 @@ const createViewButton = () => {
     button.classList.add('hide');
 
     return button;
-}
+};

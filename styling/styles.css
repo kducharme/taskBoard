@@ -99,9 +99,9 @@ nav > span > img {
 
 .dashboard--header-right {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
-    width: 50%;
+    width: 80%;
 }
 
 .dashboard--header-right > button {
@@ -121,7 +121,8 @@ nav > span > img {
 
 .dashboard--header-right > .filters {
     display: flex;
-    width: 50%;
+    padding-right: 100px;
+
 }
 
 
