@@ -1,3 +1,50 @@
+const postSavedTasks = () => {
+    const backlog = document.querySelector('#tasks-backlog');
+    const progress = document.querySelector('#tasks-progress');
+    const review = document.querySelector('#tasks-review');
+    const complete = document.querySelector('#tasks-complete');
+
+    allTasks.forEach(task => {
+
+        let name = task.title,
+            details = task.details,
+            priority = task.priority,
+            priorityStyle = priorityStyling(priority),
+            currentLane = task.lane,
+            structure = createTaskStructure(),
+            headStructure = createHeadStructure(),
+            taskName = document.createElement('h2'),
+            taskBody = document.createElement('p'),
+            viewButton = createViewButton();
+
+        taskName.textContent = name;
+        taskBody.textContent = details;
+
+        headStructure.appendChild(taskName);
+        headStructure.appendChild(viewButton);
+        structure.appendChild(headStructure);
+        structure.appendChild(taskBody);
+        structure.appendChild(priorityStyle);
+
+        if (currentLane === 'tasks-backlog') {
+            backlog.appendChild(structure)
+        }
+        if (currentLane === 'tasks-progress') {
+            progress.appendChild(structure)
+        }
+        if (currentLane === 'tasks-review') {
+            review.appendChild(structure)
+        }
+        if (currentLane === 'tasks-complete') {
+            complete.appendChild(structure)
+            completedTask(structure)
+        }
+        
+    })
+
+    taskCount();
+}
+
 const priorityStyling = (priority) => {
     const priorityStyle = document.createElement('span');
     priorityStyle.classList.add('card-priority')
@@ -36,6 +83,7 @@ const createTaskStructure = () => {
     structure.addEventListener('mouseenter', showEdit)
     structure.addEventListener('mouseleave', hideEdit)
     structure.classList.add('indiv-task', 'drag');
+
     return structure;
 }
 
@@ -46,18 +94,13 @@ const createHeadStructure = () => {
 }
 
 const showEdit = (e) => {
-    const viewButton = e.path[0].childNodes[0].childNodes[2]
-    const deleteButton = e.path[0].childNodes[0].childNodes[1]
+    const viewButton = e.path[0].childNodes[0].childNodes[1]
     viewButton.classList.toggle('hide')
-    deleteButton.classList.toggle('hide')
-    
 }
 
 const hideEdit = (e) => {
-    const viewButton = e.path[0].childNodes[0].childNodes[2]
-    const deleteButton = e.path[0].childNodes[0].childNodes[1]
+    const viewButton = e.path[0].childNodes[0].childNodes[1]
     viewButton.classList.toggle('hide')
-    deleteButton.classList.toggle('hide')
 }
 
 const createViewButton = () => {
@@ -67,15 +110,6 @@ const createViewButton = () => {
     button.addEventListener('click', taskModalData);
     button.classList.add('button--expand');
     button.classList.add('hide');
-    return button;
-}
 
-const createDeleteButton = () => {
-    const button = document.createElement('button');
-    button.innerHTML = '<i class="material-icons delete">delete</i>';
-    button.setAttribute('id', `delete`);
-    button.addEventListener('click', deleteTask);
-    button.classList.add('button--delete');
-    button.classList.add('hide');
     return button;
 }

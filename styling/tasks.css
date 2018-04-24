@@ -1,0 +1,8 @@
+.filters__search {
+    width: 250px;
+    padding-left: 15px;
+    height: 35px;
+    resize: none;
+    border: 1px solid var(--accentGray);
+    border-radius: 3px;
+}
