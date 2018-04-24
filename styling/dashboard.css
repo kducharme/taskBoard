@@ -1,3 +1,7 @@
+:root:focus {
+    cursor: grab;
+}
+
 h2 {
     font-size: 18px;
 }
@@ -131,7 +135,11 @@ hr {
     padding: 17px 17px 17px 17px;
     background-color: white;
     border: 1px solid var(--accentGray);
-    border-radius: 4px;
+    border-radius: 3px;
+}
+
+.indiv-task:last-child {
+    margin-bottom: 10px;
 }
 
 .indiv-task:hover {
@@ -141,7 +149,7 @@ hr {
 .indiv-task > p {
     margin: 0 0 5px 0;
     font-size: 13px;
-    line-height: 1.7;
+    line-height: 1.6;
 }
 
 .indiv-task-head {
@@ -150,14 +158,14 @@ hr {
     align-items:flex-start;
     min-height: 25px;
     height: 100%;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .indiv-task-head > h2 {
     font-size: 15px;
     font-weight: 600;
     line-height: 1.5;
-    width: 60%;
+    width: 75%;
     margin: 0 5px 0 0;
 }
 
@@ -184,7 +192,6 @@ hr {
     background-color: rgb(240, 240, 240);
     border: 1px solid rgb(211, 211, 211);
     border-radius: 2px;
-    margin-right: 4px;
 }
 
 .button--delete:hover {
@@ -204,11 +211,11 @@ hr {
 
 
 .drag:hover {
-    cursor: move;
+    cursor: pointer;
 }
 
 .drag:active, .drag:focus {
-    cursor: move;
+    cursor: grab;
 }
 
 /* Modal styling */

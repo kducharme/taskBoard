@@ -6,6 +6,7 @@
 	<link rel="stylesheet" href="styling/styles.css">
 	<link rel="stylesheet" href="styling/taskModal.css">
 	<link rel="stylesheet" href="styling/dashboard.css">
+	<link rel="stylesheet" href="styling/tasks.css">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Crimson+Text|Lato" rel="stylesheet">
 
 	<title>Task List</title>
@@ -17,7 +18,7 @@
 
 	<nav>
 		<span class='nav--logo'>
-			<img src='img/nss.png'>
+			<img src='img/weblogo.png'>
 		</span>
 		<a href='index.html' class='active'>
 			<i class="material-icons active" id='home'>home</i>
@@ -31,7 +32,10 @@
 	<div class='content'>
 		<div class='dashboard--header'>
 			<h2>Task List</h2>
-			<button id='addTask'>Add new task</button>
+			<span class='dashboard--header-right'>
+				<span id='filters' class='filters'></span>
+				<button id='addTask'>Add new task</button>
+			</span>
 		</div>
 
 		<div class='content--dash'></div>
@@ -151,19 +155,22 @@
 
 	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
 	<script>
-	  // Initialize Firebase
-	  var config = {
-		apiKey: "AIzaSyBWkRVvXhD1uriMStIvXfdClE8JMfl3dps",
-		authDomain: "task-list-cf398.firebaseapp.com",
-		databaseURL: "https://task-list-cf398.firebaseio.com",
-		projectId: "task-list-cf398",
-		storageBucket: "task-list-cf398.appspot.com",
-		messagingSenderId: "285994374260"
-	  };
-	  firebase.initializeApp(config);
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyBWkRVvXhD1uriMStIvXfdClE8JMfl3dps",
+			authDomain: "task-list-cf398.firebaseapp.com",
+			databaseURL: "https://task-list-cf398.firebaseio.com",
+			projectId: "task-list-cf398",
+			storageBucket: "task-list-cf398.appspot.com",
+			messagingSenderId: "285994374260"
+		};
+		firebase.initializeApp(config);
 	</script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-	<script src='scripts/createTasks.js'></script>
+
+	<script src='scripts/createTaskModal.js'></script>
+	<script src='scripts/filterTasks.js'></script>
+	<script src='scripts/taskStructure.js'></script>
 	<script src='scripts/drag.js'></script>
 	<script src='scripts/tasksDB.js'></script>
 	<script src='scripts/taskcount.js'></script>
@@ -177,7 +184,3 @@
 </body>
 
 </html>
-
-
-<!-- <span class='tasks--complete' id='tasks-complete' ondragover="allowDrop(event)" ondrop='drop(event)'>
-</span> -->

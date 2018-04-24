@@ -1,10 +1,10 @@
 :root {
-    --primaryColor: #11151C;
+    --primaryColor: #11151c;
     --accentColor: #FF570A;
     --backgroundColor: rgb(241, 242, 243);
     --accentGray:  rgb(224, 227, 230);
 
-    --chartColor: #039BE5;
+    --chartColor: #29339B;
     --successColor: #6cc551;
 
     --primaryFont: 'lato';
@@ -46,7 +46,7 @@ nav {
     align-items: center;
     width: 60px;
     height: 100vh;
-    padding: 30px 0 0 0;
+    padding: 15px 0 0 0;
     background-color: var(--primaryColor);
     position: fixed;
     left: 0;
@@ -55,7 +55,7 @@ nav {
 }
 
 nav > span > img {
-    width: 30px;
+    width: 35px;
     margin: 0 0 50px 0;
 }
 
@@ -97,7 +97,14 @@ nav > span > img {
     border-bottom: 1px solid var(--accentGray);
 }
 
-.content--header > button {
+.dashboard--header-right {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 80%;
+}
+
+.dashboard--header-right > button {
     height: 36px;
     font-size: 13px;
     font-weight: 600;
@@ -108,8 +115,14 @@ nav > span > img {
     color: white;
 }
 
-.content--header > button:hover {
+.dashboard--header-right > button:hover {
     opacity: .7;
+}
+
+.dashboard--header-right > .filters {
+    display: flex;
+    padding-right: 100px;
+
 }
 
 
