@@ -2,10 +2,12 @@
 const allowDrop = (event) => {
     const hoverLane = event.target.id;
     event.preventDefault();
+    // event.dataTransfer.dropEffect = "copy";
 }
 
 const drag = (event) => {
     event.dataTransfer.setData("text", event.target.id);
+    // event.dataTransfer.effectAllowed = "copyMove";
 }
 
 const drop = (event, el) => {

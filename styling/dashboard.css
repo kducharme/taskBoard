@@ -1,3 +1,7 @@
+:root:focus {
+    cursor: grab;
+}
+
 h2 {
     font-size: 18px;
 }
@@ -204,11 +208,11 @@ hr {
 
 
 .drag:hover {
-    cursor: move;
+    cursor: pointer;
 }
 
 .drag:active, .drag:focus {
-    cursor: move;
+    cursor: grab;
 }
 
 /* Modal styling */
