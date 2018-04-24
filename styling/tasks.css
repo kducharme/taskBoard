@@ -3,9 +3,14 @@
     padding-left: 15px;
     margin-right: 10px;
     height: 35px;
+    font-size: 12px;
     resize: none;
     border: 1px solid var(--accentGray);
     border-radius: 3px;
+}
+
+.filters__search:active, .filters__search:focus {
+    border: 1px solid var(--accentColor);
 }
 
 .filters__dropdown {
@@ -35,14 +40,15 @@
 .filters__dropdown--placeholder > p {
     margin: 0;
     padding-left: 10px;
-    font-size: 13px;
+    font-size: 12px;
     color: var(--primaryColor);
     opacity: .5;
+    font-weight: 600;
 }
 
 .filters__dropdown--click {
     border-radius: 3px 3px 0 0 ;
-    border-color: var(--primaryColor);
+    border-color: var(--accentColor);
 }
 
 .filters__dropdown:hover {

@@ -29,7 +29,7 @@ const filterPlaceholder = () => {
     const structure = document.createElement('span');
     const placeholder = document.createElement('p');
     const icon = document.createElement('p');
-    placeholder.textContent = "Select label"
+    placeholder.textContent = "Filter by label"
     icon.innerHTML = `<i class="material-icons dark-icon">arrow_drop_down</i>`
     structure.appendChild(placeholder)
     structure.appendChild(icon)

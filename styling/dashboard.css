@@ -26,7 +26,7 @@ hr {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 0px 30px 0 100px;
+    padding: 0px 30px 0 90px;
     border-bottom: 1px solid var(--accentGray);
 }
 
@@ -72,9 +72,10 @@ hr {
 
 .total-tasks {
     margin: 0;
-    padding-left: 10px;
+    padding-left: 5px;
     font-weight: 800;
-    color: var(--accentColor);
+    color: var(--primaryColor);
+    opacity: .5;
 }
 
 .dashboard--header > button {
@@ -86,6 +87,10 @@ hr {
     border: none;
     border-radius: 3px;
     color: white;
+}
+
+.dashboard--header > button:hover {
+    opacity: .8;
 }
 
 .tasks {
@@ -143,7 +148,7 @@ hr {
 }
 
 .indiv-task:hover {
-    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.20);
+    box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.10);
 }
 
 .indiv-task > p {
@@ -333,11 +338,11 @@ hr {
     margin-right: 0;
 }
 
-.red { background-color: #D72638; }
-.orange { background-color: #FF570A; }
-.green { background-color: #23CE6B; }
-.blue { background-color: #2176FF; }
-.yellow { background-color: #FDCA40; }
+.red { background-color: #FF5666; }
+.orange { background-color: #E9724C; }
+.green { background-color: #22D278; }
+.blue { background-color: #1481BA; }
+.yellow { background-color: #FFBA08; }
 
 .selected {
     box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.20);
