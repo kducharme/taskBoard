@@ -11,6 +11,9 @@ const createSearch = () => {
     const input = document.createElement('input');
     input.classList.add('filters__search')
     input.setAttribute('placeholder', 'Search tasks')
+    input.setAttribute('id', 'searchTasks')
+    input.addEventListener('keyup', filterBySearch)
+
     return input;
 }
 
@@ -29,13 +32,21 @@ const filterPlaceholder = () => {
     const structure = document.createElement('span');
     const placeholder = document.createElement('p');
     const icon = document.createElement('p');
-    placeholder.textContent = "Select label"
+    placeholder.textContent = "Filter by label"
     icon.innerHTML = `<i class="material-icons dark-icon">arrow_drop_down</i>`
     structure.appendChild(placeholder)
     structure.appendChild(icon)
     structure.classList.add('filters__dropdown--placeholder')
 
     return structure;
+}
+
+const createFilterStructure = () => {
+    const dropdown = document.querySelector('#filterStructure');
+    const filters = ['Green', 'Red', 'Yellow', 'Blue', 'Orange'];
+    dropdown.classList.toggle('filters__dropdown--click');
+    const dropdownOptions = document.createElement('div')
+
 }
 
 const addLabelOptions = () => {
@@ -57,7 +68,5 @@ const addLabelOptions = () => {
         dropdown.childNodes[1].remove();
     }
 }
-
-
 
 filterTasks();

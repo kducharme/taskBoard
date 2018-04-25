@@ -1,11 +1,9 @@
 :root {
     --primaryColor: #11151c;
-    --accentColor: #FF570A;
-    --backgroundColor: rgb(241, 242, 243);
+    --accentColor: #226CE0;
+    --backgroundColor: rgb(243, 243, 243);
     --accentGray:  rgb(224, 227, 230);
-
-    --chartColor: #29339B;
-    --successColor: #6cc551;
+    --successColor: #2BA84A;
 
     --primaryFont: 'lato';
     --secondaryFont: 'lato';
@@ -15,7 +13,7 @@ h1, h2, h3, h4, h5, a {
     font-family: var(--primaryFont);
 }
 
-button:hover, button:active, button:focus {
+button:hover, button:active, button:focus, input:focus, input:active {
     cursor: pointer;
     -webkit-transition: none;
     -moz-transition: none;
@@ -101,7 +99,6 @@ nav > span > img {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    width: 80%;
 }
 
 .dashboard--header-right > button {
@@ -121,8 +118,6 @@ nav > span > img {
 
 .dashboard--header-right > .filters {
     display: flex;
-    padding-right: 100px;
-
 }
 
 
