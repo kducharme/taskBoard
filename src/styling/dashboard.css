@@ -351,7 +351,6 @@ hr {
 
 .not-selected { opacity: .3; }
 
-.hide { display: none; }
 
 .card-priority {
     min-height: 10px;
@@ -360,3 +359,4 @@ hr {
     border-radius: 5px;
     margin-top: 10px;
 }
+.hide { display: none; }
