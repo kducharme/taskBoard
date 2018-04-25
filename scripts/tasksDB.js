@@ -52,6 +52,7 @@ const deleteTaskInDB = (key) => {
 }
 
 const parseData = (data) => {
+    allTasks = []
     const keys = Object.keys(data);
 
     keys.forEach(task => {
@@ -64,7 +65,7 @@ const parseData = (data) => {
         }
         allTasks.push(dataObj)
     })
-    postSavedTasks()
+    taskFactory()
 }
 
 getFromDB()

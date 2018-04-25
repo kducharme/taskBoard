@@ -1,17 +1,11 @@
-const postSavedTasks = () => {
-    const backlog = document.querySelector('#tasks-backlog');
-    const progress = document.querySelector('#tasks-progress');
-    const review = document.querySelector('#tasks-review');
-    const complete = document.querySelector('#tasks-complete');
-
+const taskFactory = () => {
     allTasks.forEach(task => {
-
         let name = task.title,
             details = task.details,
             priority = task.priority,
             priorityStyle = priorityStyling(priority),
             currentLane = task.lane,
-            structure = createTaskStructure(),
+            structure = taskStructure(),
             headStructure = createHeadStructure(),
             taskName = document.createElement('h2'),
             taskBody = document.createElement('p'),
@@ -25,24 +19,8 @@ const postSavedTasks = () => {
         structure.appendChild(headStructure);
         structure.appendChild(taskBody);
         structure.appendChild(priorityStyle);
-
-        if (currentLane === 'tasks-backlog') {
-            backlog.appendChild(structure)
-        }
-        if (currentLane === 'tasks-progress') {
-            progress.appendChild(structure)
-        }
-        if (currentLane === 'tasks-review') {
-            review.appendChild(structure)
-        }
-        if (currentLane === 'tasks-complete') {
-            complete.appendChild(structure)
-            completedTask(structure)
-        }
-        
+        printTasks(currentLane, structure);
     })
-
-    taskCount();
 }
 
 const priorityStyling = (priority) => {
@@ -73,7 +51,7 @@ const priorityStyling = (priority) => {
     }
 }
 
-const createTaskStructure = () => {
+const taskStructure = () => {
     const structure = document.createElement('span');
     structure.setAttribute('draggable', 'true');
     structure.setAttribute('ondragstart', 'drag(event)');

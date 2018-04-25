@@ -7,7 +7,6 @@ const moveTask = (lane, task) => {
     
     allTasks.forEach(task => {
         if (taskTitle.textContent === task.title) {
-            console.log('hi')
             const taskUpdate = {
                 lane: newLane,
                 key: task.task
