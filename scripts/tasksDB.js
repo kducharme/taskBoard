@@ -17,6 +17,7 @@ const getFromDB = () => {
         url: 'https://task-list-cf398.firebaseio.com/tasks.json?print=pretty',
         type: "GET",
         success: function (data) {
+            allTasks.length = 0;
             parseData(data);
         },
         error: function (error) {
@@ -52,7 +53,6 @@ const deleteTaskInDB = (key) => {
 }
 
 const parseData = (data) => {
-    allTasks = []
     const keys = Object.keys(data);
 
     keys.forEach(task => {

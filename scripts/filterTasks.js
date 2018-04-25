@@ -12,18 +12,10 @@ const createSearch = () => {
     input.classList.add('filters__search')
     input.setAttribute('placeholder', 'Search tasks')
     input.setAttribute('id', 'searchTasks')
-    input.addEventListener('keyup', searchTasks)
+    input.addEventListener('keyup', filterBySearch)
 
     return input;
 }
-
-const searchTasks = () => {
-    const searchTerm = document.querySelector('#searchTasks').value;
-    const regex = new RegExp(searchTerm, 'gi')
-    return regex
-}
-
-
 
 const filterByLabel = () => {
     const dropdown = document.createElement('span');

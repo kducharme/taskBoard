@@ -19,7 +19,8 @@ const taskFactory = () => {
         structure.appendChild(headStructure);
         structure.appendChild(taskBody);
         structure.appendChild(priorityStyle);
-        printTasks(currentLane, structure);
+
+        printTasks(structure, currentLane)
     })
 }
 
