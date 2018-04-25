@@ -1,4 +1,5 @@
-const taskFactory = () => {
+const taskFactory = (matchArray) => {
+
     allTasks.forEach(task => {
         let name = task.title,
             details = task.details,

@@ -22,24 +22,25 @@ const printTasks = (structure, lane) => {
         }
     })
     taskCount();
+
 }
 
 const filterBySearch = () => {
-    // const searchBox = document.querySelector('#searchTasks');
-    // let matchArray = [];
-    // if (searchBox === null) {
-    //     printTasks(matchArray)
-    // }
-    // else {
-    //     const regex = new RegExp(searchBox.value, 'gi');
-    //     allTasks.forEach(task => {
-    //         if (task.title.match(regex)) {
-    //             matchArray.push(task);
-    //             console.log(matchArray)
-    //             printTasks(matchArray)
-    //         }
-    //     })
-    // }
+    const searchBox = document.querySelector('#searchTasks');
+    let matchArray = [];
+    if (searchBox === null) {
+        // taskFactory(matchArray)
+    }
+    else {
+        const regex = new RegExp(searchBox.value, 'gi');
+        allTasks.forEach(task => {
+            if (task.title.match(regex)) {
+                matchArray.push(task);
+                console.log(matchArray)
+                // taskFactory(matchArray)
+            }
+        })
+    }
 }
 
 filterBySearch();
