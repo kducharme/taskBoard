@@ -1,4 +1,4 @@
-const makeCardsDraggable = () => {
+const draggableCards = () => {
     const structure = document.createElement('span');
     structure.setAttribute('draggable', 'true');
     structure.setAttribute('ondragstart', 'drag(event)');

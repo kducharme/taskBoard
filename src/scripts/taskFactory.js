@@ -1,23 +1,22 @@
 const buttonFactory = require('./buttonFactory');
-const cardPriority = require('./cardPriority');
+const cardPriority = require('./cardPriorityFactory');
 const draggableCards = require('./draggableCards');
 
-/* 
-NEEDS:
+/* NEEDS:
 1. Get called by laneBuilder
 */
 
-const constructTask = (task) => {
+const taskFactory = (task) => {
 
-    allTasks.forEach(task => {
-        const name = task.title;
-        const details = task.details;
-        const structure = taskStructure();
-        const priorityStyle = priorityStyling(task.priority);
+    allTasks.forEach(t => {
+        const task = makeCardsDraggable();
+        const name = t.title;
+        const details = t.details;
+        const priorityStyle = priorityStyling(t.priority);
         const viewButton = createViewButton('button-expand', 'View', taskModalData, 'hide');
         const headStructure = document.createElement('span');
         structure.classList.add('indiv-task-head');
-        const currentLane = task.lane;
+        const currentLane = t.lane;
         const taskName = document.createElement('h2');
         const taskBody = document.createElement('p');
 
@@ -25,11 +24,10 @@ const constructTask = (task) => {
         taskBody.textContent = details;
         headStructure.appendChild(taskName);
         headStructure.appendChild(viewButton);
-        structure.appendChild(headStructure);
-        structure.appendChild(taskBody);
-        structure.appendChild(priorityStyle);
-
-        return
+        task.appendChild(headStructure);
+        task.appendChild(taskBody);
+        task.appendChild(priorityStyle);
+        return task;
     })
 }
 
