@@ -1,5 +1,5 @@
 const cardPriority = (priority) => {
-    document.createElement('span');
+    let priorityStyle = document.createElement('span');
     priorityStyle.classList.add('card-priority')
     switch (priority) {
         case 'red':

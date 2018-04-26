@@ -1,46 +1,27 @@
-let allTasks = []
-
-const printTasks = (structure, lane) => {
+const printTasks = (allTasks, task) => {
+    const countTasks = require('./countTasks');
+    const completedTasks = require('./completedTasks');
     const backlog = document.querySelector('#tasks-backlog');
     const progress = document.querySelector('#tasks-progress');
     const review = document.querySelector('#tasks-review');
     const complete = document.querySelector('#tasks-complete');
 
-    allTasks.forEach(task => {
-        if (lane === 'tasks-backlog') {
-            backlog.appendChild(structure)
+    allTasks.forEach(t => {
+        if (t.lane === 'tasks-backlog') {
+            backlog.appendChild(task)
         }
-        if (lane === 'tasks-progress') {
-            progress.appendChild(structure)
+        if (t.lane === 'tasks-progress') {
+            progress.appendChild(task)
         }
-        if (lane === 'tasks-review') {
-            review.appendChild(structure)
+        if (t.lane === 'tasks-review') {
+            review.appendChild(task)
         }
-        if (lane === 'tasks-complete') {
-            complete.appendChild(structure)
-            completedTask(structure)
+        if (t.lane === 'tasks-complete') {
+            complete.appendChild(task)
+            completedTasks(task)
         }
     })
-    taskCount();
-
+    countTasks();
 }
 
-// const filterBySearch = (evt) => {
-//     // const searchBox = document.querySelector('#searchTasks');
-//     let matchArray = [];
-
-//     const userEntry = evt.target.value //this get value of form
-
-//     if (userEntry !== "") {
-//         // Filter
-//         allTasks.filter(t => {
-//             const regex = new RegExp(userEntry, 'gi');
-
-//         })
-//         taskFactory()
-//         // need to reset the dom
-//     }
-// }
-
-// filterBySearch();
-
+module.exports = printTasks;

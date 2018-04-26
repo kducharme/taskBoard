@@ -1,5 +1,5 @@
 // Counts the total task count per lane
-const taskCount = () => {
+const countTasks = () => {
     const printTotal = document.querySelector('#totalBacklogTasks');
     const backlog = document.querySelector('#tasks-backlog');
     const progress = document.querySelector('#tasks-progress');
@@ -13,11 +13,13 @@ const taskCount = () => {
         let count = lane.childElementCount;
         allCounts.push(count)
     })
-    printTaskCount(allCounts);
+    printCountedTasks(allCounts);
 }
 
+module.exports = countTasks;
+
 // Prints the total task count per lane
-const printTaskCount = (tasks) => {
+const printCountedTasks = (tasks) => {
     const backlog = document.querySelector('#totalBacklogTasks');
     const progress = document.querySelector('#totalProgressTasks');
     const review = document.querySelector('#totalReviewTasks');
@@ -35,4 +37,4 @@ const printTaskCount = (tasks) => {
     complete.textContent = `(${tasks[3]} total)`
 }
 
-taskCount();
+countTasks();

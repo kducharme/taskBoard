@@ -1,3 +1,6 @@
+const parseData = require('./firebaseParse');
+let allTasks = [];
+
 const getFromDB = () => {
     $.ajax({
         url: 'https://task-list-cf398.firebaseio.com/tasks.json?print=pretty',

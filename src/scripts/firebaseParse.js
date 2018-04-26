@@ -1,7 +1,7 @@
 const parseData = (data) => {
+    const taskFactory = require('./taskFactory');
     const keys = Object.keys(data);
     let allTasks = [];
-
     keys.forEach(task => {
         let dataObj = {
             task: task,
@@ -11,10 +11,8 @@ const parseData = (data) => {
             lane: data[task].lane,
         }
         allTasks.push(dataObj)
-        console.log(allTasks)
-        return allTasks
     })
-    taskFactory()
+    taskFactory(allTasks)
 }
 
 module.exports = parseData;
