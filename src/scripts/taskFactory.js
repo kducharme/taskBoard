@@ -1,6 +1,7 @@
 const buttonFactory = require('./buttonFactory');
 const cardPriority = require('./cardPriorityFactory');
 const draggableCards = require('./draggableCards');
+const allTasks = require('./firebaseRead');
 
 /* NEEDS:
 1. Get called by laneBuilder
@@ -27,9 +28,12 @@ const taskFactory = (task) => {
         task.appendChild(headStructure);
         task.appendChild(taskBody);
         task.appendChild(priorityStyle);
+
         return task;
     })
 }
+
+module.exports = taskFactory;
 
 const showEdit = (e) => {
     const viewButton = e.path[0].childNodes[0].childNodes[1]
