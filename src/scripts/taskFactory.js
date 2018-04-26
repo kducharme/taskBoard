@@ -1,95 +1,32 @@
-const taskStructure = () => {
-    const structure = document.createElement('span');
-    structure.setAttribute('draggable', 'true');
-    structure.setAttribute('ondragstart', 'drag(event)');
-    structure.setAttribute('ondrop', 'return false')
-    structure.setAttribute('ondragover', 'return false')
-    structure.setAttribute('id', `task__${taskID.next().value}`);
-    structure.addEventListener('mouseenter', showEdit)
-    structure.addEventListener('mouseleave', hideEdit)
-    structure.classList.add('indiv-task', 'drag');
 
-    return structure;
-}
-
-const taskFactory = () => {
-
-    allTasks.forEach(task => {
-        let name = task.title,
-            details = task.details,
-            priority = task.priority,
-            priorityStyle = priorityStyling(priority),
-            currentLane = task.lane,
-            structure = taskStructure(),
-            headStructure = createHeadStructure(),
-            taskName = document.createElement('h2'),
-            taskBody = document.createElement('p'),
-            viewButton = createViewButton();
+const taskFactory = (allTasks) => {
+    const buttonFactory = require('./buttonFactory');
+    const cardPriority = require('./cardPriorityFactory');
+    const draggableCards = require('./draggableCards');
+    const printTasks = require('./printTasks');
+    
+    allTasks.forEach(t => {
+        const task = draggableCards();
+        const name = t.title;
+        const details = t.details;
+        const priorityStyle = cardPriority(t.priority);
+        const viewButton = buttonFactory('button-expand', 'View', taskModal, 'hide');
+        const headStructure = document.createElement('span');
+        task.classList.add('indiv-task-head');
+        const currentLane = t.lane;
+        const taskName = document.createElement('h2');
+        const taskBody = document.createElement('p');
 
         taskName.textContent = name;
         taskBody.textContent = details;
-
         headStructure.appendChild(taskName);
         headStructure.appendChild(viewButton);
-        structure.appendChild(headStructure);
-        structure.appendChild(taskBody);
-        structure.appendChild(priorityStyle);
+        task.appendChild(headStructure);
+        task.appendChild(taskBody);
+        task.appendChild(priorityStyle);
 
-        printTasks(structure, currentLane)
+        printTasks(allTasks, task);
     })
 }
 
-const priorityStyling = (priority) => {
-    const priorityStyle = document.createElement('span');
-    priorityStyle.classList.add('card-priority')
-
-    switch (priority) {
-        case 'red':
-            priorityStyle.classList.add('red')
-            return priorityStyle;
-            break;
-        case 'orange':
-            priorityStyle.classList.add('orange')
-            return priorityStyle;
-            break;
-        case 'green':
-            priorityStyle.classList.add('green')
-            return priorityStyle;
-            break;
-        case 'blue':
-            priorityStyle.classList.add('blue')
-            return priorityStyle;
-            break;
-        case 'yellow':
-            priorityStyle.classList.add('yellow')
-            return priorityStyle;
-            break;
-    }
-}
-
-const createHeadStructure = () => {
-    const structure = document.createElement('span');
-    structure.classList.add('indiv-task-head');
-    return structure;
-}
-
-const showEdit = (e) => {
-    const viewButton = e.path[0].childNodes[0].childNodes[1]
-    viewButton.classList.toggle('hide')
-}
-
-const hideEdit = (e) => {
-    const viewButton = e.path[0].childNodes[0].childNodes[1]
-    viewButton.classList.toggle('hide')
-}
-
-const createViewButton = () => {
-    const button = document.createElement('button');
-    button.textContent = 'View';
-    button.setAttribute('id', `button__${buttonID.next().value}`);
-    button.addEventListener('click', taskModalData);
-    button.classList.add('button--expand');
-    button.classList.add('hide');
-
-    return button;
-};
+module.exports = taskFactory;
