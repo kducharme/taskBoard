@@ -1,12 +1,19 @@
 {
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kducharme/taskBoard.git"
+  "name": "awesomeapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kducharme/taskBoard/issues"
-  },
-  "homepage": "https://github.com/kducharme/taskBoard#readme"
+  "devDependencies": {
+    "grunt": "^1.0.2",
+    "grunt-browserify": "^5.3.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-uglify-es": "git://github.com/gruntjs/grunt-contrib-uglify.git#harmony",
+    "grunt-contrib-watch": "^1.0.0l",
+    "grunt-eslint": "^20.1.0"
+  }
 }
