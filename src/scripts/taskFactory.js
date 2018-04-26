@@ -10,9 +10,9 @@ const taskFactory = (allTasks) => {
         const name = t.title;
         const details = t.details;
         const priorityStyle = cardPriority(t.priority);
-        const viewButton = buttonFactory('button-expand', 'View', taskModal, 'hide');
+        const viewButton = buttonFactory('button--expand', 'View', taskModal, 'hide');
         const headStructure = document.createElement('span');
-        task.classList.add('indiv-task-head');
+        headStructure.classList.add('indiv-task-head');
         const currentLane = t.lane;
         const taskName = document.createElement('h2');
         const taskBody = document.createElement('p');
