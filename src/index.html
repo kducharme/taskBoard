@@ -10,12 +10,11 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons|Crimson+Text|Lato" rel="stylesheet">
 
 	<title>Task List</title>
-	<link rel="shortcut icon" type="iage" href="img/weblogo.png" />
+	<link rel="shortcut icon" type="image" href="img/weblogo.png" />
 
 </head>
 
 <body>
-
 	<nav>
 		<span class='nav--logo'>
 			<img src='img/weblogo.png'>
@@ -54,7 +53,7 @@
 					<hr>
 				</span>
 				<span class='tasks'>
-					<span class='tasks--lane' id='tasks-backlog' ondragover="allowDrop(event)" ondrop="drop(event, this)">
+					<span class='tasks--lane' id='tasks-backlog'>
 					</span>
 				</span>
 		</span>
@@ -73,7 +72,7 @@
 			</span>
 
 			<span class='tasks'>
-				<span class='tasks--lane' id='tasks-progress' ondragover="allowDrop(event)" ondrop="drop(event, this)">
+				<span class='tasks--lane' id='tasks-progress' >
 				</span>
 			</span>
 		</div>
@@ -90,7 +89,7 @@
 			</span>
 
 			<span class='tasks'>
-				<span class='tasks--lane' id='tasks-review' ondragover="allowDrop(event)" ondrop="drop(event, this)">
+				<span class='tasks--lane' id='tasks-review' >
 				</span>
 			</span>
 		</div>
@@ -107,7 +106,7 @@
 			</span>
 
 			<span class='tasks'>
-				<span class='tasks--lane' id='tasks-complete' ondragover="allowDrop(event)" ondrop="drop(event, this)">
+				<span class='tasks--lane' id='tasks-complete' >
 				</span>
 			</span>
 		</div>
@@ -167,8 +166,8 @@
 		firebase.initializeApp(config);
 	</script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src='./bundle.min.js'></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src='./bundle.js'></script>
 
 </body>
 

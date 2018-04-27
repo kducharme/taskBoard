@@ -5,4 +5,5 @@ function* idMaker() {
 }
 
 const taskID = idMaker();
-const buttonID = idMaker();
+
+module.exports = taskID;

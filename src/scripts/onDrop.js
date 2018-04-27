@@ -1,4 +1,7 @@
 const onDrop = (event, el) => {
+    const draggableCards = require('./draggableCards');
+    const moveTask = require('./moveTasks');
+
     event.preventDefault();
     const data = event.dataTransfer.getData("text");
     const laneDrop = el.parentNode.childNodes[1].id

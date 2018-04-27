@@ -28,6 +28,12 @@ module.exports = function (grunt) {
                 files: {
                     '../dist/bundle.js': ['scripts/**/*.js']
                 }
+            },
+            options: {
+                browserifyOptions: {
+                    debug: true,
+                    paths: ["./scripts"],
+                }
             }
         },
         copy: {

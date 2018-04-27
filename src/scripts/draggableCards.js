@@ -9,11 +9,12 @@ const hideEdit = (e) => {
 }
 
 const draggableCards = () => {
+    const allowDrag = require('./allowDrag');
     const structure = document.createElement('span');
     structure.setAttribute('draggable', 'true');
-    structure.setAttribute('ondragstart', 'drag(event)');
-    structure.setAttribute('ondrop', 'return false')
-    structure.setAttribute('ondragover', 'return false')
+    structure.addEventListener('dragstart', function() {
+        event.dataTransfer.setData('text', event.target.id);
+    });
     structure.addEventListener('mouseenter', showEdit)
     structure.addEventListener('mouseleave', hideEdit)
     structure.classList.add('indiv-task', 'drag');
@@ -22,3 +23,6 @@ const draggableCards = () => {
 }
 
 module.exports = draggableCards;
+
+    // structure.setAttribute('ondrop', 'return false')
+    // structure.setAttribute('ondragover', 'return false')
