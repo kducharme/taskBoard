@@ -9,6 +9,8 @@ const taskModal = () => {
     modal.classList.toggle('hide')
 }
 
+module.exports = taskModal;
+
 const addTask = document.querySelector('#addTask').addEventListener('click', taskModal);
 
 // Closes modal after user clicks 'x' button

@@ -1,5 +1,6 @@
 const createTaskStructure = (t) => {
     const buttonFactory = require('./buttonFactory');
+    const showTaskModal = require('./editTaskModal');
     const cardPriority = require('./priorityFactory');
     const draggableCards = require('./draggableCards');
     const taskID = require('./generatorFunctions');
@@ -8,7 +9,7 @@ const createTaskStructure = (t) => {
     const name = t.title;
     const details = t.details;
     const priorityStyle = cardPriority(t.priority);
-    const viewButton = buttonFactory('button--expand', 'View', taskModal, 'hide');
+    const viewButton = buttonFactory('button--expand', 'View', showTaskModal, 'hide');
     const headStructure = document.createElement('span');
     headStructure.classList.add('indiv-task-head');
     const currentLane = t.lane;
