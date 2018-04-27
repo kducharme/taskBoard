@@ -1,16 +1,16 @@
 // Updates the lane in the task's object on drop
 const moveTask = (lane, task) => {
-    const getFirebaseData = require('./firebaseRead');
+    // const firebaseParse = require('./firebaseParse');
     const taskTitle = task.childNodes[0].childNodes[0];
     const taskPriority = task.childNodes[2].classList[1]
     let newLane = lane;
     let taskKey;
 
-    const data = getFirebaseData();
+    console.log(taskKey)
 
-    console.log(data)
+    const allTasks = firebaseParse();
     
-    data.forEach(task => {
+    allTasks.forEach(task => {
         if (taskTitle.textContent === task.title) {
             const taskUpdate = {
                 lane: newLane,

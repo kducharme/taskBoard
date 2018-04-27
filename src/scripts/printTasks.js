@@ -7,29 +7,24 @@ const printTasks = (allTasks) => {
     const review = document.querySelector('#tasks-review');
     const complete = document.querySelector('#tasks-complete');
 
-    console.log(allTasks)
-
     allTasks.forEach(t => {
-        console.log(t)
         const task = createTaskStructure(t);
         if (t.lane === 'tasks-backlog') {
             backlog.appendChild(task)
-            console.log('backlog')
         }
         if (t.lane === 'tasks-progress') {
             progress.appendChild(task)
-            console.log('progress')
         }
         if (t.lane === 'tasks-review') {
             review.appendChild(task)
-            console.log('review')
         }
         if (t.lane === 'tasks-complete') {
+            const completedTasks = require('./completedTasks');
             complete.appendChild(task)
-            // completedTasks(task)
+            completedTasks(task)
         }
     })
-    // countTasks();
+    countTasks();
 }
 
 module.exports = printTasks;
