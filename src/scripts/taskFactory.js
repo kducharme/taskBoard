@@ -1,10 +1,9 @@
-
 const taskFactory = (allTasks) => {
     const buttonFactory = require('./buttonFactory');
-    const cardPriority = require('./cardPriorityFactory');
+    const cardPriority = require('./priorityFactory');
     const draggableCards = require('./draggableCards');
     const printTasks = require('./printTasks');
-    
+
     allTasks.forEach(t => {
         const task = draggableCards();
         const name = t.title;

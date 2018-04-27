@@ -1,4 +1,4 @@
-const cardPriority = (priority) => {
+const priorityFactory = (priority) => {
     let priorityStyle = document.createElement('span');
     priorityStyle.classList.add('card-priority')
     switch (priority) {
@@ -25,4 +25,4 @@ const cardPriority = (priority) => {
     }
 }
 
-module.exports = cardPriority;
+module.exports = priorityFactory;
