@@ -9,6 +9,8 @@ const taskModal = () => {
     modal.classList.toggle('hide')
 }
 
+module.exports = taskModal;
+
 const addTask = document.querySelector('#addTask').addEventListener('click', taskModal);
 
 // Closes modal after user clicks 'x' button
@@ -81,20 +83,4 @@ const createTask = (e) => {
 }
 
 const createNewTask = document.querySelector('#createTask').addEventListener('click', createTask)
-
-const clearLanes = () => {
-    // NEED: CLEAR ONLY THE LANE THAT HAS A CHANGE
-    const backlog = document.querySelector('#tasks-backlog');
-    const progress = document.querySelector('#tasks-progress');
-    const review = document.querySelector('#tasks-review');
-    const complete = document.querySelector('#tasks-complete');
-    const lanes = [];
-    lanes.push(backlog, progress, review, complete);
-
-    lanes.forEach(lane => {
-        while (lane.firstChild) {
-            lane.removeChild(lane.firstChild);
-        }
-    })
-}
 
