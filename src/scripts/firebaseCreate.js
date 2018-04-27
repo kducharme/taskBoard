@@ -1,6 +1,5 @@
-const createTaskStructure = require('./createTaskStructure');
-
-const saveToDB = (task) => {
+const firebaseCreate = (task) => {
+    console.log('hi')
     $.ajax({
         url: 'https://task-list-cf398.firebaseio.com/tasks.json',
         type: "POST",
@@ -13,5 +12,7 @@ const saveToDB = (task) => {
         }
     });
 }
+
+exports.module = firebaseCreate;
 
 
