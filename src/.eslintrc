@@ -9,10 +9,8 @@
     "rules": {
         "semi": 0,
         "no-trailing-spaces": [
-            2,
-            {
-                "skipBlankLines": true
-            }
+            0,
+            { "skipBlankLines": true }
         ],
         "eqeqeq": 2
     }

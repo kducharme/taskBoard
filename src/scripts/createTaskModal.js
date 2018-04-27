@@ -3,7 +3,6 @@ const taskModal = () => {
     let modal = document.querySelector('#modal');
     close = document.querySelector('#closeModal').addEventListener('click', closeModal);
     const priorities = document.querySelectorAll('.priority');
-
     priorities.forEach(priority => {
         priority.addEventListener('click', stylePriority);
     })
@@ -17,7 +16,6 @@ const closeModal = () => {
     let modal = document.querySelector('#modal');
     const priorities = document.querySelectorAll('.priority');
     modal.classList.toggle('hide');
-
     priorities.forEach(priority => {
         priority.classList.remove('selected')
         priority.classList.remove('not-selected')

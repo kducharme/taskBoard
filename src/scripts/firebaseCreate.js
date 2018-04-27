@@ -1,4 +1,4 @@
-const taskFactory = require('./taskFactory');
+const createTaskStructure = require('./createTaskStructure');
 
 const saveToDB = (task) => {
     $.ajax({
