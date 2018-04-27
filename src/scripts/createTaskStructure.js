@@ -26,8 +26,8 @@ const createTaskStructure = (allTasks) => {
         task.appendChild(taskBody);
         task.appendChild(priorityStyle);
 
-        printTasks(allTasks, task);
     })
+    printTasks(allTasks);
 }
 
 module.exports = createTaskStructure;

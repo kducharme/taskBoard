@@ -6,6 +6,7 @@ const printTasks = (allTasks, task) => {
     const review = document.querySelector('#tasks-review');
     const complete = document.querySelector('#tasks-complete');
 
+    console.log(allTasks)
     allTasks.forEach(t => {
         if (t.lane === 'tasks-backlog') {
             backlog.appendChild(task)
@@ -18,7 +19,7 @@ const printTasks = (allTasks, task) => {
         }
         if (t.lane === 'tasks-complete') {
             complete.appendChild(task)
-            completedTasks(task)
+            // completedTasks(task)
         }
     })
     countTasks();
