@@ -1,3 +1,4 @@
+// When user drops a card on a lane, it appends it to the row. If it is the last row, it hides the "p" text.
 const onDrop = (event, el) => {
     const draggableCards = require('./draggableCards');
     const countTasks = require('./countTasks');
