@@ -21,6 +21,7 @@ const createTaskStructure = (t) => {
     headStructure.appendChild(taskName);
     headStructure.appendChild(viewButton);
     task.setAttribute('id', `task__${taskID.next().value}`);
+    task.setAttribute('id', t.key)
     task.appendChild(headStructure);
     task.appendChild(taskBody);
     task.appendChild(priorityStyle);

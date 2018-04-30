@@ -1,4 +1,4 @@
-const updateDB = (taskUpdate) => {
+const firebaseUpdate = (taskUpdate) => {
     $.ajax({
         url: `https://task-list-cf398.firebaseio.com/tasks/${taskUpdate.key}.json`,
         type: "PATCH",
@@ -10,3 +10,5 @@ const updateDB = (taskUpdate) => {
         }
     });
 }
+
+module.exports = firebaseUpdate;
