@@ -7,9 +7,7 @@ const onDrop = (event, el) => {
     const data = event.dataTransfer.getData("text");
     const laneDrop = el.parentNode.childNodes[1].id
     const selectedTask = document.querySelector(`#${data}`);
-    // moveTask(laneDrop, selectedTask)
-    
-    console.log(laneDrop, selectedTask)
+    moveTask(laneDrop, selectedTask)
     
     if (laneDrop === 'tasks-complete') {
         const completedTasks = require('./completedTasks');
